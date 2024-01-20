@@ -1,0 +1,44 @@
+import java.util.Random;
+import java.util.ArrayList;
+
+public class DeckOfCards {
+
+  private ArrayList<Card> cards;
+  private int numOfCards;
+
+  public DeckOfCards(){
+    cards = new ArrayList<Card>();
+    for(int suit = 0; suit < 4; suit++){
+      for(int rank = 0; rank < 13; rank++){
+        cards.add(new Card(rank, suit));
+      }
+    }
+    numOfCards = cards.size();
+  }
+
+  public void shuffle(){
+    Random rand = new Random();
+    for(int i = numOfCards - 1; i >= 1; i--){
+      int ran = rand.nextInt(numOfCards);
+      Card temp = cards.get(i);
+      cards.set(i, cards.get(ran));
+      cards.set(ran, temp);
+    }
+  }
+
+  public Card dealCard(){
+    if(numOfCards == 0){
+      return null;
+    }
+    
+    Card card = cards.get(numOfCards - 1);
+    cards.remove(numOfCards - 1);
+    numOfCards--;
+    return card;
+  }
+
+  public int cardsLeft(){
+    return numOfCards;
+  }
+
+}
