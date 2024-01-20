@@ -1,0 +1,25 @@
+public class Card {
+  
+  private int rank;
+  private int suit;
+
+  public Card(int rank, int suit){
+    this.rank = rank; 
+    this.suit = suit;
+  }
+
+  public int rank(){
+    return rank;
+  }
+
+   public int getSuit(){
+    return suit;
+  }
+
+  public String toString(){
+    String[] ranks = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
+    String[] suits = {"Spades", "Clubs", "Diamonds", "Hearts"};
+    return ranks[rank] + " of " + suits[suit];  
+  }
+  
+}
